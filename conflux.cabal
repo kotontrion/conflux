@@ -1,0 +1,35 @@
+cabal-version:      3.0
+name:               conflux
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            MIT
+license-file:       LICENSE
+author:             kotontrion
+maintainer:         kotontrion@tutanota.de
+-- copyright:
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall
+
+executable conflux
+    import:           warnings
+    main-is:          Main.hs
+    other-modules:
+                      State
+                      Layout
+    -- other-extensions:
+    build-depends:    base ^>=4.21.0.0,
+                      text,
+                      lens,
+                      mtl,
+                      containers,
+                      optparse-applicative,
+                      haskell-gi-base,
+                      gi-glib,
+                      gi-astal-river,
+    hs-source-dirs:   app
+    default-language: Haskell2010
