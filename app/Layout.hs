@@ -28,7 +28,7 @@ rotateGeometry :: Geometry -> Geometry
 rotateGeometry (x, y, w, h) = (y, x, h, w)
 
 mirrorGeometry :: Word32 -> Word32 -> Geometry -> Geometry
-mirrorGeometry width height (x, y, w, h) =
+mirrorGeometry width _height (x, y, w, h) =
   (width - (x + w), y, w, h)
 
 rotate :: LayoutFunction -> LayoutFunction
@@ -39,7 +39,7 @@ rotate layout output n x y width height = do
 mirror :: LayoutFunction -> LayoutFunction
 mirror layout output n x y width height = do
   layout output n x y width height
-    >>= pure . map (mirrorGeometry width height)
+    >>= pure . map (mirrorGeometry (width + 2*x) (height + 2*y))
 
 rows :: LayoutFunction
 rows _ 0 _ _ _ _ = pure []

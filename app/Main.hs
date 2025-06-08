@@ -69,7 +69,7 @@ cliOptionsParser =
       ( long "view-padding"
           <> short 'v'
           <> metavar "PADDING"
-          <> value 4
+          <> value 2
           <> help "Padding between views"
       )
     <*> option
